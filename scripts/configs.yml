@@ -1,0 +1,19 @@
+os
+  name: ubuntu1604
+  setup_path: /scripts
+apache2:
+  user: ubuntu
+  group: ubuntu
+mysql:
+  root_password: 123456
+site1:
+  app_name: enji
+  server_name: enji.dev
+  port: 80
+  root_path: /vagrant/enji/source/htdocs/
+site2:
+  app_name: enji2
+  server_name: enji2.dev
+  port: 80
+  root_path: /vagrant/enji/source/htdocs/
+  
