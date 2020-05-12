@@ -40,9 +40,9 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "./htdocs", "/vagrant"
-  config.vm.synced_folder "./scripts", "/scripts"
-
+  config.vm.synced_folder "./htdocs", "/vagrant", :mount_options => ["dmode=777",  "fmode=666"]
+  config.vm.synced_folder "./scripts", "/vagrant/scripts"
+  
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
@@ -53,6 +53,7 @@ Vagrant.configure(2) do |config|
   #
   #   # Customize the amount of memory on the VM:
      vb.memory = "2048"
+     vb.cpus = 2
   end
   #
   # View the documentation for the provider you are using for more
@@ -68,5 +69,8 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", path: "install.sh"
+  # FOR MAC
+  config.vm.provision "shell", path: "./scripts/install.sh"
+  # FOR WINDOW
+  #config.vm.provision "shell", path: "./scripts/bootstrap.sh"
 end
