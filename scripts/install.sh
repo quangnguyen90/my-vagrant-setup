@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # include parse_yaml function
-. $SETUP_SCRIPT/parse_yaml.sh
+#. $SETUP_SCRIPT/parse_yaml.sh
+. /scripts/parse_yaml.sh
 
 #OS="$config_os_name"
 #SETUP_SCRIPT="$config_os_setup_path"
